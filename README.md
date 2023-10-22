@@ -30,12 +30,6 @@
 ![Apache Airflow](https://img.shields.io/badge/Apache%20Airflow-0db7ed?style=for-the-badge&logo=Apache%20Airflow&logoColor=white)
 ![Streamlit](https://img.shields.io/badge/Streamlit%20-%20%230db7ed?style=for-the-badge&logo=streamlit&logoColor=white)
 ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
-![Hubspot](https://img.shields.io/badge/Hubspot%20-%20%230057FF?style=for-the-badge&logo=hubspot&logoColor=white)
-![Mixpanel](https://img.shields.io/badge/Mixpanel%20-%20%230057FF?style=for-the-badge&logo=mixpanel&logoColor=white)
-![Intercom](https://img.shields.io/badge/Intercom%20-%20%230057FF?style=for-the-badge&logo=intercom&logoColor=white)
-![Zendesk](https://img.shields.io/badge/Zendesk%20-%20%230057FF?style=for-the-badge&logo=zendesk&logoColor=white)
-![Appsmith](https://img.shields.io/badge/Appsmith-A9225C?style=for-the-badge&logo=appsmith&logoColor=white)
-![Zapier](https://img.shields.io/badge/Zapier-A9225C?style=for-the-badge&logo=zapier&logoColor=white)
 ##### Legend:
 ![Programming](https://img.shields.io/badge/Programming%3A%20-%20?style=for-the-badge&color=00BF6F)
 ![Databases](https://img.shields.io/badge/Databases%3A%20-%20?style=for-the-badge&color=%23FF4F00)
@@ -43,6 +37,6 @@
 ![Testing:](https://img.shields.io/badge/Testing%3A%20-%20?style=for-the-badge&color=%232C5263)
 ![Deploy:](https://img.shields.io/badge/Deploy%3A%20-%20?style=for-the-badge&color=0db7ed)
 ![CRM & Customer Data:](https://img.shields.io/badge/CRM_&_Customer_Data%3A%20-%20?style=for-the-badge&color=0057FF)
-![Low-Code Magic:](https://img.shields.io/badge/Low_Code_Magic%3A%20-%20?style=for-the-badge&color=A9225C)<br/>
+
 [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=strangercacaus&layout=donut&size_weight=0.2&count_weight=1)](https://github.com/anuraghazra/github-readme-stats)
 ![Github Stats](https://github-readme-stats.vercel.app/api?username=strangercacaus&count_private=true&show_icons=true&include_all_commits=true)
