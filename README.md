@@ -26,5 +26,7 @@ I have created automated ETL routines using Python, Deepnote and REST APIs. Curr
 ![Apache Airflow](https://img.shields.io/badge/Apache%20Airflow-0db7ed?style=for-the-badge&logo=Apache%20Airflow&logoColor=white)
 ![Streamlit](https://img.shields.io/badge/Streamlit%20-%20%230db7ed?style=for-the-badge&logo=streamlit&logoColor=white)
 ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
+![MkDocs](https://img.shields.io/badge/MkDocs-%230db7ed.svg?style=for-the-badge&logo=mkdocs&logoColor=white)
 
-![Github Stats](https://github-readme-stats.vercel.app/api?username=strangercacaus&count_private=true&show_icons=true&include_all_commits=true)
+![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=strangercacaus&size_weight=0&count_weight=1&theme=tokyonight&langs_count=20)
+![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=strangercacaus&show_icons=true&theme=tokyonight)
