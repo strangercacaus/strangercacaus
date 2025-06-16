@@ -11,12 +11,12 @@ I have created automated ETL routines using Python, Deepnote and REST APIs. Curr
 ![Python](https://img.shields.io/badge/python-00BF6F?style=for-the-badge&logo=python&logoColor=white)
 ![Git](https://img.shields.io/badge/git-00BF6F.svg?style=for-the-badge&logo=git&logoColor=white)
 ![Postgres](https://img.shields.io/badge/postgres-%23FF4F00.svg?style=for-the-badge&logo=postgresql&logoColor=white)
-![DuckDB](https://img.shields.io/badge/Duckdb%20-%20%23FF4F00?style=for-the-badge&logo=duckdb&logoColor=white)<br/>
+![DuckDB](https://img.shields.io/badge/Duckdb%20-%20%23FF4F00?style=for-the-badge&logo=duckdb&logoColor=white)
 ![Pandas](https://img.shields.io/badge/pandas-%237856FF.svg?style=for-the-badge&logo=pandas&logoColor=white)
 ![Plotly](https://img.shields.io/badge/Plotly-%237856FF.svg?style=for-the-badge&logo=plotly&logoColor=white)
 ![Metabase](https://img.shields.io/badge/Metabase%20-%20%237856FF?style=for-the-badge&logo=metabase&logoColor=white)
 ![Postman](https://img.shields.io/badge/Postman-2C5263?style=for-the-badge&logo=postman&logoColor=white)
-![Pytest](https://img.shields.io/badge/Pytest%20-%20%232C5263?style=for-the-badge&logo=pytest&logoColor=white)<br/>
+![Pytest](https://img.shields.io/badge/Pytest%20-%20%232C5263?style=for-the-badge&logo=pytest&logoColor=white)
 ![AWS](https://img.shields.io/badge/AWS-%230db7ed.svg?style=for-the-badge&logo=amazon-aws&logoColor=white)
 ![Airflow](https://img.shields.io/badge/Apache%20Airflow-0db7ed?style=for-the-badge&logo=Apache%20Airflow&logoColor=white)
 ![Streamlit](https://img.shields.io/badge/Streamlit%20-%20%230db7ed?style=for-the-badge&logo=streamlit&logoColor=white)
