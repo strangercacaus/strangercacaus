@@ -202,7 +202,7 @@ function createRadarChart(canvasId, data) {
                 tooltip: {
                     backgroundColor: 'rgba(0, 0, 0, 0.8)',
                     titleColor: '#fff',
-                    bodyColor: '#fff',
+                    bodyColor: '#FBFFFF',
                     borderColor: 'rgba(255, 255, 255, 0.2)',
                     borderWidth: 1,
                     cornerRadius: 8,
