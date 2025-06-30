@@ -136,6 +136,19 @@ const chartData = {
     }
 };
 
+// Register background color plugin
+Chart.register({
+    id: 'backgroundColorPlugin',
+    beforeDraw: function(chart) {
+        const ctx = chart.canvas.getContext('2d');
+        ctx.save();
+        ctx.globalCompositeOperation = 'destination-over';
+        ctx.fillStyle = '#FBFFFF';
+        ctx.fillRect(0, 0, chart.width, chart.height);
+        ctx.restore();
+    }
+});
+
 // Initialize charts when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
     initializeAllRadarCharts();
@@ -202,7 +215,7 @@ function createRadarChart(canvasId, data) {
                 tooltip: {
                     backgroundColor: 'rgba(0, 0, 0, 0.8)',
                     titleColor: '#fff',
-                    bodyColor: '#FBFFFF',
+                    bodyColor: '#fff',
                     borderColor: 'rgba(255, 255, 255, 0.2)',
                     borderWidth: 1,
                     cornerRadius: 8,
