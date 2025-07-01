@@ -6,7 +6,8 @@ I have created automated ETL routines using Python, Deepnote and REST APIs. Curr
 
 ---
 
-## Talk to me about [![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Roboto&duration=2800&pause=500&color=F7F7F7&random=true&width=435&lines=customer+analytics.;product-led+growth.;data+engineering.;data+warehousing.;ML+algorithms.;product+analytics.)](https://git.io/typing-svg)
+## Talk to me about
+[![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Roboto&duration=2800&pause=500&color=F7F7F7&random=true&width=435&lines=customer+analytics.;product-led+growth.;data+engineering.;data+warehousing.;ML+algorithms.;product+analytics.)](https://git.io/typing-svg)
 
 
 [![Linkedin Badge](https://img.shields.io/badge/-Cacau-blue?style=for-the-badge&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/cacau/)](https://www.linkedin.com/in/cacau/)
