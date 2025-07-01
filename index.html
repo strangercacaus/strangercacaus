@@ -3,96 +3,546 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Radar Chart Dashboard</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Radar Charts - Embeddable Collection</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+        }
+        
+        .header p {
+            font-size: 1.1em;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        .url-setup {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #e9ecef;
+        }
+        
+        .url-setup label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #495057;
+        }
+        
+        .url-setup input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 14px;
+            background: white;
+        }
+        
+        .url-setup input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        .charts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .chart-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .chart-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .chart-header {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px 20px;
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+        
+        .chart-preview {
+            height: 300px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .chart-preview iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .chart-actions {
+            padding: 20px;
+        }
+        
+        .embed-section {
+            margin-bottom: 15px;
+        }
+        
+        .embed-section h4 {
+            margin-bottom: 8px;
+            color: #495057;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .embed-code {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .embed-input {
+            flex: 1;
+            padding: 8px 12px;
+            border: 1px solid #e9ecef;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            background: #f8f9fa;
+            color: #495057;
+            resize: none;
+        }
+        
+        .copy-btn {
+            padding: 8px 15px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+        
+        .copy-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+        
+        .copy-btn.copied {
+            background: linear-gradient(45deg, #28a745, #20c997);
+        }
+        
+        .size-options {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .size-btn {
+            padding: 4px 8px;
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 11px;
+            transition: all 0.2s ease;
+        }
+        
+        .size-btn:hover {
+            background: #e9ecef;
+        }
+        
+        .size-btn.active {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            margin-top: 40px;
+        }
+        
+        .footer p {
+            color: #666;
+            margin-bottom: 10px;
+        }
+        
+        .github-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background: linear-gradient(45deg, #24292e, #586069);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: transform 0.3s ease;
+        }
+        
+        .github-link:hover {
+            transform: translateY(-2px);
+        }
+        
+        @media (max-width: 768px) {
+            .charts-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .embed-code {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .copy-btn {
+                margin-top: 8px;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-
-        <main>
-            <!-- Character Stats Radar Chart -->
-            <section class="chart-section">
-                <div class="section-header">
-                    <h2>Automação</h2>
+        <div class="header">
+            <h1>🎯 Embeddable Radar Charts</h1>
+            <p>Professional skill assessment charts ready for embedding anywhere</p>
+            
+            <div class="url-setup">
+                <label for="baseUrl">Your GitHub Pages URL:</label>
+                <input 
+                    type="text" 
+                    id="baseUrl" 
+                    placeholder="https://yourusername.github.io/your-repo-name" 
+                    value="https://yourusername.github.io/your-repo-name"
+                >
+                <small style="color: #666; margin-top: 5px; display: block;">
+                    Replace with your actual GitHub Pages URL. Format: https://username.github.io/repository-name
+                </small>
+            </div>
+        </div>
+        
+        <div class="charts-grid">
+            <!-- Chart 1: Automação -->
+            <div class="chart-card" data-chart="automacao">
+                <div class="chart-header">🤖 Automação</div>
+                <div class="chart-preview">
+                    <iframe src="chart-automacao.html"></iframe>
                 </div>
-                <div class="chart-container">
-                    <canvas id="radarChart1"></canvas>
+                <div class="chart-actions">
+                    <div class="embed-section">
+                        <h4>📋 Embed Code</h4>
+                        <div class="embed-code">
+                            <textarea class="embed-input" readonly></textarea>
+                            <button class="copy-btn" onclick="copyEmbedCode(this)">Copy</button>
+                        </div>
+                        <div class="size-options">
+                            <button class="size-btn active" data-size="400x300">Small</button>
+                            <button class="size-btn" data-size="500x375">Medium</button>
+                            <button class="size-btn" data-size="600x450">Large</button>
+                            <button class="size-btn" data-size="100%x350">Responsive</button>
+                        </div>
+                    </div>
                 </div>
-            </section>
-
-            <!-- Skills Assessment Radar Chart -->
-            <section class="chart-section">
-                <div class="section-header">
-                    <h2>Business Intelligence</h2>
+            </div>
+            
+            <!-- Chart 2: Business Intelligence -->
+            <div class="chart-card" data-chart="business-intelligence">
+                <div class="chart-header">📊 Business Intelligence</div>
+                <div class="chart-preview">
+                    <iframe src="chart-business-intelligence.html"></iframe>
                 </div>
-                <div class="chart-container">
-                    <canvas id="radarChart2"></canvas>
+                <div class="chart-actions">
+                    <div class="embed-section">
+                        <h4>📋 Embed Code</h4>
+                        <div class="embed-code">
+                            <textarea class="embed-input" readonly></textarea>
+                            <button class="copy-btn" onclick="copyEmbedCode(this)">Copy</button>
+                        </div>
+                        <div class="size-options">
+                            <button class="size-btn active" data-size="400x300">Small</button>
+                            <button class="size-btn" data-size="500x375">Medium</button>
+                            <button class="size-btn" data-size="600x450">Large</button>
+                            <button class="size-btn" data-size="100%x350">Responsive</button>
+                        </div>
+                    </div>
                 </div>
-            </section>
-
-            <!-- Product Comparison Radar Chart -->
-            <section class="chart-section">
-                <div class="section-header">
-                    <h2>CRM</h2>
+            </div>
+            
+            <!-- Chart 3: CRM -->
+            <div class="chart-card" data-chart="crm">
+                <div class="chart-header">👥 CRM</div>
+                <div class="chart-preview">
+                    <iframe src="chart-crm.html"></iframe>
                 </div>
-                <div class="chart-container">
-                    <canvas id="radarChart3"></canvas>
+                <div class="chart-actions">
+                    <div class="embed-section">
+                        <h4>📋 Embed Code</h4>
+                        <div class="embed-code">
+                            <textarea class="embed-input" readonly></textarea>
+                            <button class="copy-btn" onclick="copyEmbedCode(this)">Copy</button>
+                        </div>
+                        <div class="size-options">
+                            <button class="size-btn active" data-size="400x300">Small</button>
+                            <button class="size-btn" data-size="500x375">Medium</button>
+                            <button class="size-btn" data-size="600x450">Large</button>
+                            <button class="size-btn" data-size="100%x350">Responsive</button>
+                        </div>
+                    </div>
                 </div>
-            </section>
-
-            <!-- Team Performance Radar Chart -->
-            <section class="chart-section">
-                <div class="section-header">
-                    <h2>Cloud</h2>
+            </div>
+            
+            <!-- Chart 4: Cloud -->
+            <div class="chart-card" data-chart="cloud">
+                <div class="chart-header">☁️ Cloud</div>
+                <div class="chart-preview">
+                    <iframe src="chart-cloud.html"></iframe>
                 </div>
-                <div class="chart-container">
-                    <canvas id="radarChart4"></canvas>
+                <div class="chart-actions">
+                    <div class="embed-section">
+                        <h4>📋 Embed Code</h4>
+                        <div class="embed-code">
+                            <textarea class="embed-input" readonly></textarea>
+                            <button class="copy-btn" onclick="copyEmbedCode(this)">Copy</button>
+                        </div>
+                        <div class="size-options">
+                            <button class="size-btn active" data-size="400x300">Small</button>
+                            <button class="size-btn" data-size="500x375">Medium</button>
+                            <button class="size-btn" data-size="600x450">Large</button>
+                            <button class="size-btn" data-size="100%x350">Responsive</button>
+                        </div>
+                    </div>
                 </div>
-            </section>
-
-            <section class="chart-section">
-                <div class="section-header">
-                    <h2>AWS</h2>
+            </div>
+            
+            <!-- Chart 5: AWS -->
+            <div class="chart-card" data-chart="aws">
+                <div class="chart-header">🚀 AWS</div>
+                <div class="chart-preview">
+                    <iframe src="chart-aws.html"></iframe>
                 </div>
-                <div class="chart-container">
-                    <canvas id="radarChart5"></canvas>
+                <div class="chart-actions">
+                    <div class="embed-section">
+                        <h4>📋 Embed Code</h4>
+                        <div class="embed-code">
+                            <textarea class="embed-input" readonly></textarea>
+                            <button class="copy-btn" onclick="copyEmbedCode(this)">Copy</button>
+                        </div>
+                        <div class="size-options">
+                            <button class="size-btn active" data-size="400x300">Small</button>
+                            <button class="size-btn" data-size="500x375">Medium</button>
+                            <button class="size-btn" data-size="600x450">Large</button>
+                            <button class="size-btn" data-size="100%x350">Responsive</button>
+                        </div>
+                    </div>
                 </div>
-            </section>
-
-            <section class="chart-section">
-                <div class="section-header">
-                    <h2>Dados</h2>
+            </div>
+            
+            <!-- Chart 6: Dados -->
+            <div class="chart-card" data-chart="dados">
+                <div class="chart-header">📈 Dados</div>
+                <div class="chart-preview">
+                    <iframe src="chart-dados.html"></iframe>
                 </div>
-                <div class="chart-container">
-                    <canvas id="radarChart6"></canvas>
+                <div class="chart-actions">
+                    <div class="embed-section">
+                        <h4>📋 Embed Code</h4>
+                        <div class="embed-code">
+                            <textarea class="embed-input" readonly></textarea>
+                            <button class="copy-btn" onclick="copyEmbedCode(this)">Copy</button>
+                        </div>
+                        <div class="size-options">
+                            <button class="size-btn active" data-size="400x300">Small</button>
+                            <button class="size-btn" data-size="500x375">Medium</button>
+                            <button class="size-btn" data-size="600x450">Large</button>
+                            <button class="size-btn" data-size="100%x350">Responsive</button>
+                        </div>
+                    </div>
                 </div>
-            </section>
-
-            <section class="chart-section">
-                <div class="section-header">
-                    <h2>Data Engineering</h2>
+            </div>
+            
+            <!-- Chart 7: Data Engineering -->
+            <div class="chart-card" data-chart="data-engineering">
+                <div class="chart-header">🔧 Data Engineering</div>
+                <div class="chart-preview">
+                    <iframe src="chart-data-engineering.html"></iframe>
                 </div>
-                <div class="chart-container">
-                    <canvas id="radarChart7"></canvas>
+                <div class="chart-actions">
+                    <div class="embed-section">
+                        <h4>📋 Embed Code</h4>
+                        <div class="embed-code">
+                            <textarea class="embed-input" readonly></textarea>
+                            <button class="copy-btn" onclick="copyEmbedCode(this)">Copy</button>
+                        </div>
+                        <div class="size-options">
+                            <button class="size-btn active" data-size="400x300">Small</button>
+                            <button class="size-btn" data-size="500x375">Medium</button>
+                            <button class="size-btn" data-size="600x450">Large</button>
+                            <button class="size-btn" data-size="100%x350">Responsive</button>
+                        </div>
+                    </div>
                 </div>
-            </section>
-
-            <section class="chart-section">
-                <div class="section-header">
-                    <h2>Programação</h2>
+            </div>
+            
+            <!-- Chart 8: Programação -->
+            <div class="chart-card" data-chart="programacao">
+                <div class="chart-header">💻 Programação</div>
+                <div class="chart-preview">
+                    <iframe src="chart-programacao.html"></iframe>
                 </div>
-                <div class="chart-container">
-                    <canvas id="radarChart8"></canvas>
+                <div class="chart-actions">
+                    <div class="embed-section">
+                        <h4>📋 Embed Code</h4>
+                        <div class="embed-code">
+                            <textarea class="embed-input" readonly></textarea>
+                            <button class="copy-btn" onclick="copyEmbedCode(this)">Copy</button>
+                        </div>
+                        <div class="size-options">
+                            <button class="size-btn active" data-size="400x300">Small</button>
+                            <button class="size-btn" data-size="500x375">Medium</button>
+                            <button class="size-btn" data-size="600x450">Large</button>
+                            <button class="size-btn" data-size="100%x350">Responsive</button>
+                        </div>
+                    </div>
                 </div>
-            </section>
-            </main>
-
-        <footer>
-            <p>Built with Chart.js | Press 'R' to refresh charts | Hosted on GitHub Pages</p>
-        </footer>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>📡 Ready to embed these charts anywhere!</p>
+            <p>Simply copy the embed code and paste it into your website, blog, or documentation.</p>
+            <a href="https://github.com" class="github-link">🔗 View on GitHub</a>
+        </div>
     </div>
-
-    <script src="script.js"></script>
+    
+    <script>
+        // Initialize embed codes when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            updateAllEmbedCodes();
+            
+            // Update embed codes when URL changes
+            document.getElementById('baseUrl').addEventListener('input', updateAllEmbedCodes);
+            
+            // Handle size selection
+            document.querySelectorAll('.size-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Remove active class from siblings
+                    this.parentNode.querySelectorAll('.size-btn').forEach(sibling => {
+                        sibling.classList.remove('active');
+                    });
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    // Update embed code for this chart
+                    updateEmbedCode(this.closest('.chart-card'));
+                });
+            });
+        });
+        
+        function updateAllEmbedCodes() {
+            document.querySelectorAll('.chart-card').forEach(updateEmbedCode);
+        }
+        
+        function updateEmbedCode(card) {
+            const baseUrl = document.getElementById('baseUrl').value.replace(/\/$/, '');
+            const chartName = card.dataset.chart;
+            const activeSize = card.querySelector('.size-btn.active').dataset.size;
+            const [width, height] = activeSize.split('x');
+            
+            let embedCode;
+            if (width === '100%') {
+                embedCode = `<iframe src="${baseUrl}/chart-${chartName}.html" style="width: 100%; height: ${height}px; border: none; border-radius: 8px;"></iframe>`;
+            } else {
+                embedCode = `<iframe src="${baseUrl}/chart-${chartName}.html" width="${width}" height="${height}" style="border: none; border-radius: 8px;"></iframe>`;
+            }
+            
+            card.querySelector('.embed-input').value = embedCode;
+        }
+        
+        async function copyEmbedCode(button) {
+            const embedInput = button.parentNode.querySelector('.embed-input');
+            const embedCode = embedInput.value;
+            
+            try {
+                await navigator.clipboard.writeText(embedCode);
+                
+                // Visual feedback
+                const originalText = button.textContent;
+                button.textContent = 'Copied!';
+                button.classList.add('copied');
+                
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.classList.remove('copied');
+                }, 2000);
+                
+            } catch (err) {
+                // Fallback for older browsers
+                embedInput.select();
+                document.execCommand('copy');
+                
+                const originalText = button.textContent;
+                button.textContent = 'Copied!';
+                button.classList.add('copied');
+                
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.classList.remove('copied');
+                }, 2000);
+            }
+        }
+    </script>
 </body>
 </html> 
