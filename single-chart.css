@@ -60,6 +60,7 @@ body {
 .chart-container canvas {
     max-width: 100% !important;
     max-height: 100% !important;
+    background: transparent !important;
 }
 
 /* Responsive design for different iframe sizes */

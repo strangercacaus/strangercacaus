@@ -45,7 +45,13 @@
             ]
         };
 
-        // Transparent background - no background plugin needed
+        // Plugin to ensure transparent background
+        Chart.register({
+            id: 'transparentBackground',
+            beforeDraw: function(chart) {
+                chart.canvas.style.backgroundColor = 'transparent';
+            }
+        });
 
         document.addEventListener('DOMContentLoaded', function() {
             const ctx = document.getElementById('radarChart').getContext('2d');
