@@ -51,35 +51,7 @@
             margin-bottom: 20px;
         }
         
-        .url-setup {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            border: 1px solid #e9ecef;
-        }
-        
-        .url-setup label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: #495057;
-        }
-        
-        .url-setup input {
-            width: 100%;
-            padding: 12px;
-            border: 2px solid #e9ecef;
-            border-radius: 8px;
-            font-size: 14px;
-            background: white;
-        }
-        
-        .url-setup input:focus {
-            outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-        }
+
         
         .charts-grid {
             display: grid;
@@ -260,19 +232,9 @@
         <div class="header">
             <h1>🎯 Embeddable Radar Charts</h1>
             <p>Professional skill assessment charts ready for embedding anywhere</p>
-            
-            <div class="url-setup">
-                <label for="baseUrl">Your GitHub Pages URL:</label>
-                <input 
-                    type="text" 
-                    id="baseUrl" 
-                    placeholder="https://yourusername.github.io/your-repo-name" 
-                    value="https://yourusername.github.io/your-repo-name"
-                >
-                <small style="color: #666; margin-top: 5px; display: block;">
-                    Replace with your actual GitHub Pages URL. Format: https://username.github.io/repository-name
-                </small>
-            </div>
+            <p style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-top: 20px; color: #495057;">
+                <strong>📍 Base URL:</strong> https://strangercacaus.github.io/strangercacaus/
+            </p>
         </div>
         
         <div class="charts-grid">
@@ -473,9 +435,6 @@
         document.addEventListener('DOMContentLoaded', function() {
             updateAllEmbedCodes();
             
-            // Update embed codes when URL changes
-            document.getElementById('baseUrl').addEventListener('input', updateAllEmbedCodes);
-            
             // Handle size selection
             document.querySelectorAll('.size-btn').forEach(btn => {
                 btn.addEventListener('click', function() {
@@ -496,7 +455,7 @@
         }
         
         function updateEmbedCode(card) {
-            const baseUrl = document.getElementById('baseUrl').value.replace(/\/$/, '');
+            const baseUrl = 'https://strangercacaus.github.io/strangercacaus';
             const chartName = card.dataset.chart;
             const activeSize = card.querySelector('.size-btn.active').dataset.size;
             const [width, height] = activeSize.split('x');
