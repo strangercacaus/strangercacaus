@@ -29,8 +29,13 @@ I have created automated ETL routines using Python, Deepnote and REST APIs. Curr
 ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
 
 #### My Stats
-![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=strangercacaus&size_weight=0&count_weight=1&theme=tokyonight&langs_count=20)
-![Cauês's GitHub stats](https://github-readme-stats.vercel.app/api?username=strangercacaus&show_icons=true&theme=tokyonight)
+<div align="center">
+
+![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=strangercacaus&size_weight=0&count_weight=1&theme=tokyonight&langs_count=8&layout=compact)
+![Cauê's GitHub stats](https://github-readme-stats.vercel.app/api?username=strangercacaus&show_icons=true&theme=tokyonight&hide_border=true&include_all_commits=true)
+
+[![GitHub Streak](https://streak-stats.demolab.com/?user=strangercacaus&theme=tokyonight&hide_border=true)](https://git.io/streak-stats)
+
 ![Snake animation](https://github.com/strangercacaus/strangercacaus/blob/output/snake.svg)
 
-![3D Profile View](./profile-3d-contrib/profile-gitblock.svg)
+</div>
