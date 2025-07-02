@@ -1,13 +1,15 @@
 
 
-### My name is Cauê, i'm a Florianópolis based analytics professional.
-I have worked for the past 3 years in mainly business intelligence projects as a Customer Experience Ops. I have used mainly SQL in a vast ammount of projects, visualizing creating and tuning databases.
-I have created automated ETL routines using Python, Deepnote and REST APIs. Currently i am studying Data Engineering, AWS, Airflow and i intend to dive into statistics next. <br/>
-
----
-
 ## Talk to me about
 [![Typing SVG](https://readme-typing-svg.herokuapp.com?font=Roboto&duration=2800&pause=500&color=F7F7F7&random=true&width=435&lines=customer+analytics.;product-led+growth.;data+engineering.;data+warehousing.;ML+algorithms.;product+analytics.)](https://git.io/typing-svg)
+
+### My name is Cauê, i'm a Florianópolis based analytics professional.
+I have worked since 2021 in business intelligence projects as a Customer Experience Ops and Product Owner. 
+
+I have used SQL in a vast ammount of projects, visualizing creating and tuning databases.
+I have created automated ETL routines using Python, Deepnote and REST APIs. Currently i am studying Data Engineering, AWS, Airflow and DBT. <br/>
+
+---
 
 
 [![Linkedin Badge](https://img.shields.io/badge/-Cacau-blue?style=for-the-badge&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/cacau/)](https://www.linkedin.com/in/cacau/)
@@ -37,6 +39,8 @@ I have created automated ETL routines using Python, Deepnote and REST APIs. Curr
 ![Cauê's GitHub stats](https://github-readme-stats.vercel.app/api?username=strangercacaus&show_icons=true&theme=tokyonight&hide_border=true&include_all_commits=true)
 
 [![GitHub Streak](https://streak-stats.demolab.com/?user=strangercacaus&theme=tokyonight&hide_border=true)](https://git.io/streak-stats)
+
+![3D Profile](./profile-3d-contrib/profile-green-animate.svg)
 
 ![Snake animation](https://github.com/strangercacaus/strangercacaus/blob/output/snake.svg)
 
