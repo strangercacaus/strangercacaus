@@ -36,17 +36,7 @@
             ]
         };
 
-        Chart.register({
-            id: 'backgroundColorPlugin',
-            beforeDraw: function(chart) {
-                const ctx = chart.canvas.getContext('2d');
-                ctx.save();
-                ctx.globalCompositeOperation = 'destination-over';
-                ctx.fillStyle = '#FBFFFF';
-                ctx.fillRect(0, 0, chart.width, chart.height);
-                ctx.restore();
-            }
-        });
+        // Transparent background - no background plugin needed
 
         document.addEventListener('DOMContentLoaded', function() {
             const ctx = document.getElementById('radarChart').getContext('2d');

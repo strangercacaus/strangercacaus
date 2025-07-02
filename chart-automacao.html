@@ -37,18 +37,7 @@
             ]
         };
 
-        // Register background color plugin
-        Chart.register({
-            id: 'backgroundColorPlugin',
-            beforeDraw: function(chart) {
-                const ctx = chart.canvas.getContext('2d');
-                ctx.save();
-                ctx.globalCompositeOperation = 'destination-over';
-                ctx.fillStyle = '#FBFFFF';
-                ctx.fillRect(0, 0, chart.width, chart.height);
-                ctx.restore();
-            }
-        });
+        // Transparent background - no background plugin needed
 
         // Initialize chart when DOM is loaded
         document.addEventListener('DOMContentLoaded', function() {
