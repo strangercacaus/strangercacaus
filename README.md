@@ -33,6 +33,7 @@ I have created automated ETL routines using Python, Deepnote and REST APIs. Curr
 <div align="center">
 
 ![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=strangercacaus&size_weight=0&count_weight=1&theme=tokyonight&langs_count=8&layout=compact)
+
 ![Cauê's GitHub stats](https://github-readme-stats.vercel.app/api?username=strangercacaus&show_icons=true&theme=tokyonight&hide_border=true&include_all_commits=true)
 
 [![GitHub Streak](https://streak-stats.demolab.com/?user=strangercacaus&theme=tokyonight&hide_border=true)](https://git.io/streak-stats)
