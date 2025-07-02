@@ -18,23 +18,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           USERNAME: strangercacaus
-          SETTING_JSON: |
-            {
-              "type": "normal",
-              "backgroundColor": "#000000",
-              "foregroundColor": "#ffffff",
-              "strongColor": "#39d353",
-              "weakColor": "#166937",
-              "radarColor": "#01311f",
-              "growingAnimation": true,
-              "contribColors": [
-                "#161B22",
-                "#0e4429", 
-                "#006d32",
-                "#26a641",
-                "#39d353"
-              ]
-            }
+          SETTING_JSON: '{"type": "normal", "backgroundColor": "#000000", "foregroundColor": "#ffffff", "strongColor": "#39d353", "weakColor": "#0e4429"}'
       - name: Commit & Push
         run: |
           git config user.name github-actions
