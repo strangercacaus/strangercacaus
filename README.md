@@ -40,8 +40,6 @@ I have created automated ETL routines using Python, Deepnote and REST APIs. Curr
 
 [![GitHub Streak](https://streak-stats.demolab.com/?user=strangercacaus&theme=tokyonight&hide_border=true)](https://git.io/streak-stats)
 
-![3D Profile](./profile-3d-contrib/profile-green-animate.svg)
-
 ![Snake animation](https://github.com/strangercacaus/strangercacaus/blob/output/snake.svg)
 
 </div>
